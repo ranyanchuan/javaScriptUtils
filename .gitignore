@@ -1,0 +1,10 @@
+.idea/
+node_modules/
+
+.DS_Store
+src/.DS_Store
+src/models/.DS_Store
+src/routes/Roles/.DS_Store
+
+yarn.lock
+
