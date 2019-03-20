@@ -1,6 +1,6 @@
 # javaScriptUtils
 javascript常用工具方法
-> 生成唯一字符串
+##### 生成唯一字符串
 ```js
 /**
  * 生成唯一字符串
@@ -20,7 +20,7 @@ export function uuid() {
     return s.join('');
 }
 ```
->将一个对象中值包含数字字符转换成number
+##### 将一个对象中值包含数字字符转换成number
 ```js
 /**
  * 将一个对象中值包含数字字符转换成number
@@ -54,7 +54,7 @@ export function objStringToNumber(obj) {
     return obj;
 }
 ```
-> 生成10位以内的验证码
+##### 生成10位以内的验证码
 ```js
 /**
  * 生成10位以内的验证码
