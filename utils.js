@@ -55,3 +55,21 @@ export function objStringToNumber(obj) {
 export function numValidate(num) {
     return Math.random().toString().slice(-num);
 }
+
+
+
+/**
+ * 数组对象去重
+ * @param arr 对象数组,key对象唯一标识 类型为字符串
+ */
+export function arrayObjClear(arr,key) {
+    let result = [];
+    const obj = {};
+    for(let i =0; i<arr.length; i+=1){
+        if(!obj[arr[i][key]]){
+            result.push(arr[i]);
+            obj[arr[i][key]] = true;
+        }
+    }
+    return result;
+}
