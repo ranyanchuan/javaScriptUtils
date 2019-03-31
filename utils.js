@@ -53,6 +53,8 @@ export function objStringToNumber(obj) {
 /**
  /**
  * 将对象中的 日期字符串转换成日期对象
+ * 使用instanceof检测date是否为Date类型，结果为true
+ * 使用Date的getTime()方法，Invalid Date对象返回的是一个NaN，
  */
 export function char2Date(obj) {
     // 判断值是否为数组
@@ -62,8 +64,11 @@ export function char2Date(obj) {
                 char2Date(childItem);
             } else {
                 if ((typeof childItem === 'string')) {
-                    const temp =new Date(childItem);
-                    if (temp) obj[index] = temp;
+                    const date =new Date(childItem);
+                    if (date instanceof Date && !isNaN(date.getTime())){
+                        obj[index] = date;
+                    }
+
                 }
             }
         })
@@ -72,9 +77,11 @@ export function char2Date(obj) {
             if (typeof obj[item] === 'object') {
                 char2Date(obj[item]);
             } else {
-                if (obj[item] && (typeof obj[item] === 'char2Date')) {
-                    const temp = new Date(obj[item]);
-                    if (temp) obj[item] = temp;
+                if (obj[item] && (typeof obj[item] === 'string')) {
+                    const date = new Date(obj[item]);
+                    if (date instanceof Date && !isNaN(date.getTime())){
+                        obj[item] = date;
+                    }
                 }
             }
         }
