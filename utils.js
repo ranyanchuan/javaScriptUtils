@@ -48,6 +48,42 @@ export function objStringToNumber(obj) {
     return obj;
 }
 
+
+
+/**
+ /**
+ * 将对象中的 日期字符串转换成日期对象
+ */
+export function char2Date(obj) {
+    // 判断值是否为数组
+    if (obj && Array.isArray(obj)) {
+        obj.map((childItem, index) => {
+            if (typeof childItem === 'object') {
+                char2Date(childItem);
+            } else {
+                if ((typeof childItem === 'string')) {
+                    const temp =new Date(childItem);
+                    if (temp) obj[index] = temp;
+                }
+            }
+        })
+    } else {
+        for (const item in obj) {
+            if (typeof obj[item] === 'object') {
+                char2Date(obj[item]);
+            } else {
+                if (obj[item] && (typeof obj[item] === 'char2Date')) {
+                    const temp = new Date(obj[item]);
+                    if (temp) obj[item] = temp;
+                }
+            }
+        }
+    }
+    return obj;
+}
+
+
+
 /**
  * 生成10位以内的验证码
  * @param num
