@@ -117,16 +117,35 @@ export function arrayObjClear(arr, key) {
 
 /**
  * 解构 对象下是对象
- * @param arr 对象数组,key对象唯一标识 类型为字符串
+ * 将一个对象A，A对象的属性值又是一个对象B，将A 对象key 和 A对象的属性值B对象的属性value和display 值 进行封装一个新对象
+ * @param data 解构对象, childrenKey 子对象key
+ *
  */
-export function objDctValue(data) {
-    const result = {}
+export function objDctValue(data,childrenKey) {
+    const result = {};
+    // 如果 childrenKey 非空
+    if(childrenKey){
+        for (const key in data) {
+            let value = "";
+            // 判断值对象是否有 value 属性
+            if (data[key] && data[key][childrenKey]) {
+                value = data[key][childrenKey] || "";
+            }
+            result[key] = value; // 值
+        }
+        return result;
+    }
+    // childrenKey 值为空 取 value 和 display
     for (const key in data) {
         let value = "";
-        if (data[key] && data[key].value) {
-            value = data[key].value;
+        let display="";
+        // 判断值对象是否有 value 或者 display 属性
+        if (data[key] && (data[key].value || data[key].display)) {
+            value = data[key].value || '';
+            display = data[key].dispaly || '';
         }
-        result[key] = value;
+        result[key] = value; // 值
+        result[key+'_name'] = display; // 名称
     }
     return result;
 }

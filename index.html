@@ -14,19 +14,37 @@
         expsource: {value: 'xxxx'},
     }
 
-    function objDctValue(data) {
-        const result = {}
+    function objDctValue(data,childrenKey) {
+        const result = {};
+        // 如果 childrenKey 非空
+        if(childrenKey){
+            for (const key in data) {
+                let value = "";
+                // 判断值对象是否有 value 属性
+                if (data[key] && data[key][childrenKey]) {
+                    value = data[key][childrenKey] || "";
+                }
+                result[key] = value; // 值
+            }
+            return result;
+        }
+        // childrenKey 值为空 取 value 和 display
         for (const key in data) {
             let value = "";
-            if (data[key] && data[key].value) {
+            let display="";
+            // 判断值对象是否有 value 或者 display 属性
+            if (data[key] && (data[key].value || data[key].display)) {
                 value = data[key].value || '';
+                display = data[key].dispaly || '';
             }
-            result[key] = value;
+            result[key] = value; // 值
+            result[key+'_name'] = display; // 名称
         }
         return result;
     }
 
-    console.log(objDctValue(values));
+
+    console.log(objDctValue(values,'value'));
 
 </script>
 </body>
