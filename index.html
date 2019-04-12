@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+
+    const values = {
+        id: {value: 'xxxx'},
+        expname: {value: 'xxxx'},
+        expsource: {value: 'xxxx'},
+    }
+
+    function objDctValue(data) {
+        const result = {}
+        for (const key in data) {
+            let value = "";
+            if (data[key] && data[key].value) {
+                value = data[key].value || '';
+            }
+            result[key] = value;
+        }
+        return result;
+    }
+
+    console.log(objDctValue(values));
+
+</script>
+</body>
+</html>

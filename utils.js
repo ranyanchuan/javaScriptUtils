@@ -49,7 +49,6 @@ export function objStringToNumber(obj) {
 }
 
 
-
 /**
  /**
  * 将对象中的 日期字符串转换成日期对象
@@ -64,8 +63,8 @@ export function char2Date(obj) {
                 char2Date(childItem);
             } else {
                 if ((typeof childItem === 'string')) {
-                    const date =new Date(childItem);
-                    if (date instanceof Date && !isNaN(date.getTime())){
+                    const date = new Date(childItem);
+                    if (date instanceof Date && !isNaN(date.getTime())) {
                         obj[index] = date;
                     }
 
@@ -79,7 +78,7 @@ export function char2Date(obj) {
             } else {
                 if (obj[item] && (typeof obj[item] === 'string')) {
                     const date = new Date(obj[item]);
-                    if (date instanceof Date && !isNaN(date.getTime())){
+                    if (date instanceof Date && !isNaN(date.getTime())) {
                         obj[item] = date;
                     }
                 }
@@ -88,7 +87,6 @@ export function char2Date(obj) {
     }
     return obj;
 }
-
 
 
 /**
@@ -100,19 +98,35 @@ export function numValidate(num) {
 }
 
 
-
 /**
  * 数组对象去重
  * @param arr 对象数组,key对象唯一标识 类型为字符串
  */
-export function arrayObjClear(arr,key) {
+export function arrayObjClear(arr, key) {
     let result = [];
     const obj = {};
-    for(let i =0; i<arr.length; i+=1){
-        if(!obj[arr[i][key]]){
+    for (let i = 0; i < arr.length; i += 1) {
+        if (!obj[arr[i][key]]) {
             result.push(arr[i]);
             obj[arr[i][key]] = true;
         }
+    }
+    return result;
+}
+
+
+/**
+ * 解构 对象下是对象
+ * @param arr 对象数组,key对象唯一标识 类型为字符串
+ */
+export function objDctValue(data) {
+    const result = {}
+    for (const key in data) {
+        let value = "";
+        if (data[key] && data[key].value) {
+            value = data[key].value;
+        }
+        result[key] = value;
     }
     return result;
 }
