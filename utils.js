@@ -1,4 +1,22 @@
 /**
+ * 生成随机字符串
+ * len 要生成字符串的长度
+ */
+export function randomText(len) {
+    let i = 0;
+    let str = '';
+    const base = 20000;
+    const range = 1000;
+    while (i < len) {
+        i++;
+        const lower = parseInt(Math.random() * range);
+        str += String.fromCharCode(base + lower);
+    }
+    return str;
+};
+
+
+/**
  * 生成唯一字符串
  */
 export function uuid() {
@@ -121,10 +139,10 @@ export function arrayObjClear(arr, key) {
  * @param data 解构对象, childrenKey 子对象key
  *
  */
-export function objDctValue(data,childrenKey) {
+export function objDctValue(data, childrenKey) {
     const result = {};
     // 如果 childrenKey 非空
-    if(childrenKey){
+    if (childrenKey) {
         for (const key in data) {
             let value = "";
             // 判断值对象是否有 value 属性
@@ -138,14 +156,14 @@ export function objDctValue(data,childrenKey) {
     // childrenKey 值为空 取 value 和 display
     for (const key in data) {
         let value = "";
-        let display="";
+        let display = "";
         // 判断值对象是否有 value 或者 display 属性
         if (data[key] && (data[key].value || data[key].display)) {
             value = data[key].value || '';
             display = data[key].dispaly || '';
         }
         result[key] = value; // 值
-        result[key+'_name'] = display; // 名称
+        result[key + '_name'] = display; // 名称
     }
     return result;
 }
