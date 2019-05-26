@@ -1,9 +1,6 @@
 # javaScriptUtils
 javascript常用工具方法
-<<<<<<< HEAD
 
-
-=======
 ##### 生成唯一字符串
 ```js
 /**
@@ -68,4 +65,23 @@ export function numValidate(num) {
     return Math.random().toString().slice(-num);
 }
 ```
->>>>>>> 2844a18c72477fb545141d2cbf9e463838f62439
+##### 生成中文随机字符串
+```js
+/**
+ * 生成随机字符串
+ * len 要生成字符串的长度
+ */
+export function randomText(len) {
+    let i = 0;
+    let str = '';
+    const base = 20000;
+    const range = 1000;
+    while (i < len) {
+        i++;
+        const lower = parseInt(Math.random() * range);
+        str += String.fromCharCode(base + lower);
+    }
+    return str;
+};
+
+```
