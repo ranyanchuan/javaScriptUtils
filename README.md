@@ -1,5 +1,12 @@
 # javaScriptUtils
 javascript常用工具方法
+##### 对象深克隆
+```js
+// 数组深克隆 值不能为 null
+export function deepClone(data) {
+  return JSON.parse(JSON.stringify(data));
+}
+```
 
 ##### 生成唯一字符串
 ```js
