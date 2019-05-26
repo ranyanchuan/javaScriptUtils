@@ -1,3 +1,29 @@
+
+
+
+
+/**
+* 数组对象深克隆
+* array [{key:"",value:""},{key:"",value:""}]
+*/
+
+export function arrayObjctClone(array) {
+  return array.map((item) => {
+    return { ...item };
+  });
+}
+
+
+/**
+ * 对象深克隆
+ * data 克隆对象母体 值不能为 null
+ */
+export function deepClone(data) {
+  return JSON.parse(JSON.stringify(data));
+}
+
+
+
 /**
  * 生成随机字符串
  * len 要生成字符串的长度
@@ -167,3 +193,4 @@ export function objDctValue(data, childrenKey) {
     }
     return result;
 }
+
