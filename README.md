@@ -1,5 +1,14 @@
 # javaScriptUtils
 javascript常用工具方法
+
+##### 数组对象深度copy
+```js
+export function arrayObjctClone(array) {
+  return array.map((item) => {
+    return { ...item };
+  });
+}
+```
 ##### 对象深克隆
 ```js
 // 数组深克隆 值不能为 null
