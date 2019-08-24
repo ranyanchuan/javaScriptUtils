@@ -109,7 +109,6 @@ export function fullScreen() {
     if(typeof rfs != "undefined" && rfs) {
         rfs.call(el);
     };
-    return;
 }
 ```
 ##### 浏览器退出全屏
