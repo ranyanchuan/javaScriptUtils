@@ -154,4 +154,15 @@ export function compareObj(propertyName, sortOrder) {
 
 ```
 
+##### 生成指定区间内的整数
+```js
+export function getBetweenNum(starNum, endNum, num = 1) {
+  const result = [];
+  for (let i = starNum; i <= endNum; i += num) {
+    result.push(i);
+  }
+  return result;
+}
+```
+
 
