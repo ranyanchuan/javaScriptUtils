@@ -165,6 +165,24 @@ export function getBetweenNum(starNum, endNum, num = 1) {
   return result;
 }
 ```
+##### 对象深拷贝 
+```js
+// 有 undefined、function、symbol 会被忽略
+var syb = Symbol('obj');
+var person = {
+   name :'tino',
+   say: function(){
+      console.log('hi');
+   },
+   ok: syb,
+   un: undefined
+}
+var copy = JSON.parse(JSON.stringify(persion));
+// copy
+// {name: "tino"}
+```
+
+
 
 
 
