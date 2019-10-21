@@ -213,28 +213,41 @@ function runWords(param){
 }
 ```
 
-##### mvvm 数据绑定
+##### 简单mvvvm
 ```js
- var data = {};
-var input = document.getElementById('input');
-var span = document.getElementById('span');
+const data={};
+const input =document.getElementById("input");
+const span=document.getElementById("span");
+Object.defineProperty(data,'text',{
+   set(value){
+       input.value=value;
+       span.innerText=value;
+   }
+   get(){
+     
+   }
+})
 
-Object.defineProperty(data, 'text', {
-	set(value) {
-	    input.value = value;
-	    span.innerText= value;
-	    this._value=value;
-	},
-	get(){ // data.text 会调用这个方法
-	    return this._value
-	}
-	});
-	input.onchange = function (e) {
-	data.text = e.target.value;
-	}
+##### 冒泡排序
+function sortBubbling(arr){
+    // 判断是否为数组
+    if(!Array.isArray(arr)){
+        return arr;
+    }
+    for(let i=0;i<arr.length;i++){
+        for(let j=i;j<arr.length;j++){
+            if(arr[i]>arr[j]){
+                // 大小交换 es6 最新写法
+                [arr[i],arr[j]]=[arr[j],arr[i]];
+            }
+
+        }
+    }
+    return arr;
 }
 
 ```
+
 
 
 
