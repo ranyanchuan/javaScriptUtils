@@ -213,6 +213,29 @@ function runWords(param){
 }
 ```
 
+##### mvvm 数据绑定
+```js
+ var data = {};
+var input = document.getElementById('input');
+var span = document.getElementById('span');
+
+Object.defineProperty(data, 'text', {
+	set(value) {
+	    input.value = value;
+	    span.innerText= value;
+	    this._value=value;
+	},
+	get(){ // data.text 会调用这个方法
+	    return this._value
+	}
+	});
+	input.onchange = function (e) {
+	data.text = e.target.value;
+	}
+}
+
+```
+
 
 
 
