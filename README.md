@@ -202,6 +202,8 @@ function deepCopy(obj){
 ```
 
 ##### 判断是否为回文
+
+```js
 function runWords(param){
    // 判断是否为回文
    if(!Oject.prototype.toString.call(param)){
@@ -209,7 +211,7 @@ function runWords(param){
    }
    return param.split("").reverse().join("")===param;
 }
-
+```
 
 
 
