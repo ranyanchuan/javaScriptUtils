@@ -227,8 +227,9 @@ Object.defineProperty(data,'text',{
      
    }
 })
-
+```
 ##### 冒泡排序
+```js
 function sortBubbling(arr){
     // 判断是否为数组
     if(!Array.isArray(arr)){
