@@ -273,6 +273,17 @@ function fastSort(arr){
 }
 
 ```
+#####  `all`：布尔全等判断	
+```js
+const all=(arr,fn)=> arr.every(fn);
+all([4, 2, 3], x => x > 1); // true
+```
+
+##### `allEqual`：检查数组各项相等
+```js
+const allEqual=arr=>arr.every(val=>val===arr[0]);
+```
+
 		
 
 
