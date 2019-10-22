@@ -249,6 +249,33 @@ function sortBubbling(arr){
 
 ```
 
+##### 快速排序
+```js
+function fastSort(arr){
+    // 不是数组 或者 数组小于等于1
+    if(!Array.isArray(arr) || arr.length<=1){
+        return arr;
+    }
+    // 基准值
+    let mid=Math.floor(arr.length/2);
+    let midValue=arr.splice(mid,1)[0];
+    let rightArray=[];
+    let leftArray=[];
+    for(let i=0;i<arr.length;i++){
+        if(arr[i]>midValue){
+            rightArray.push(arr[i]); // 将值放到 右边
+        }else{
+            leftArray.push(arr[i]);   // 将值放到 左边
+        }
+
+    }
+    return [...fastSort(leftArray),midValue,...fastSort(rightArray)]; // 数组合并
+}
+
+```
+		
+
+
 
 
 
