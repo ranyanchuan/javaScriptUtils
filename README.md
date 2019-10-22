@@ -299,7 +299,23 @@ const comments = [
 ];
 const nestedComments = nest(comments); // [{ id: 1, parent_id: null, children: [...] }]
 ```
+#### 数组打平 
+```js
+function flatArray(arr){
+    let result=[];
+    for(let item of arr){
+        if(Array.isArray(item)){
+            result.push(...flatArray(item));
+        }else{
+            result.push(item)
+        }
+    }
+    return result;
+}
+
+```
 	
+		
 		
 
 
