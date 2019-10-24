@@ -314,6 +314,27 @@ function flatArray(arr){
 }
 
 ```
+
+##### 插入排序
+```js
+function insertSort(arr){
+    if(Array.isArray(arr)){
+        for(let index=1;index<arr.length;index++){
+            let preIndex = index - 1;
+            let currentValue=arr[index];
+    
+            while(currentValue<arr[preIndex]){
+                arr[preIndex + 1] = arr[preIndex];
+                preIndex--;
+            }
+            arr[preIndex + 1] = currentValue;
+    
+        }
+    }
+}
+
+```
+
 	
 		
 		
