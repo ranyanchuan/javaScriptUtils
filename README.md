@@ -334,6 +334,29 @@ function insertSort(arr){
 }
 
 ```
+##### 链表反转
+```js
+function reverse(linkedList) {
+    let head = linkedList.head;
+    if (head === null || head.next === null) {
+        return;
+    }
+
+    let current = head;
+    let nextNode = current.next;
+
+    head.next = null;
+    while (nextNode) {
+        let temp = nextNode.next;
+        nextNode.next = current;
+        current = nextNode;
+        nextNode = temp;
+
+    }
+    linkedList.head = current;
+}
+```
+
 
 	
 		
