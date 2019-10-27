@@ -375,6 +375,27 @@ function stringVar(parm) {
     return stack.length === 0 ? true : false
 }
 ```
+##### 用栈实现队列
+```js
+let stackInput = []; // 入栈
+let stackOut = [];  // 出栈
+function pushStack(node) {
+    stackInput.push(node);
+}
+
+function outStack() {
+    if (stackInput.length === 0 && stackOut.length === 0) {
+        return;
+    }
+    if (stackOut.length === 0) {
+        while (stackOut.length > 0) {
+            stackOut.push(stackInput.pop());
+        }
+    }
+    return stackOut.pop();
+}
+
+```
 
 
 	
