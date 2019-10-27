@@ -356,6 +356,25 @@ function reverse(linkedList) {
     linkedList.head = current;
 }
 ```
+##### 括号是否合法
+```js
+function stringVar(parm) {
+    const arr = [...parm];
+    let stack = [];
+    let left = ["{", "[", "("];
+    let right = ["}", "]", ")"];
+    for (let index in arr) {
+        if (left.includes(arr[index])) {
+            stack.push(right[index]);
+        } else {
+            if (stack.pop() !== arr[index]) {
+                return false;
+            }
+        }
+    }
+    return stack.length === 0 ? true : false
+}
+```
 
 
 	
