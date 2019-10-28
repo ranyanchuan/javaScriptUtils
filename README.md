@@ -551,6 +551,15 @@ function outStack() {
     }
 ```
 
+##### 判断字符是否 dom
+```js
+ function checkHtml(htmlStr) {
+        let  reg = /<[^>]+>/g;
+        return reg.test(htmlStr);
+}
+```
+		
+
 	
 		
 		
