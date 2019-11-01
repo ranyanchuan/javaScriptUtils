@@ -558,6 +558,18 @@ function outStack() {
         return reg.test(htmlStr);
 }
 ```
+
+#####  获取属性的描述信息
+```JS
+// 获取属性的描述信息
+let obj = {foo: 123};
+Object.getOwnPropertyDescriptor(obj, 'foo');
+
+// configurable: true
+// enumerable: true
+// value: 123
+// writable: true
+```
 		
 
 	
