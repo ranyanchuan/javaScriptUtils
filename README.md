@@ -570,6 +570,29 @@ Object.getOwnPropertyDescriptor(obj, 'foo');
 // value: 123
 // writable: true
 ```
+#####  二维数组中找相等值
+```js
+function findNum(row, col, data, num) {
+    for (let rowItem = 0; rowItem < row; rowItem++) {
+        for (let colItem = 0; colItem < col; colItem++) {
+            if (data[rowItem][colItem] > num) {
+                col = colItem;
+                break;
+            }
+            if (data[rowItem][colItem] === num) {
+                return true;
+            }
+
+        }
+    }
+    return false;
+}
+
+let data = [[1, 2, 8, 9], [2, 4, 9, 2], [4, 7, 10, 13], [6, 8, 11, 15]];
+console.log(findNum(4, 4, data, 11))
+
+```
+
 		
 
 	
