@@ -592,6 +592,53 @@ let data = [[1, 2, 8, 9], [2, 4, 9, 2], [4, 7, 10, 13], [6, 8, 11, 15]];
 console.log(findNum(4, 4, data, 11))
 
 ```
+##### 归并排序
+```js
+function mergeSort(arr) {
+    if (!Array.isArray(arr)) {
+        return;
+    }
+    const length = arr.length;
+    if (length === 0) {
+        return arr; //递归算法的停止条件，即为判断数组长度是否为1
+    }
+
+    const mid = length >> 1;
+    const left = arr.slice(0, mid);
+    const right = arr.slice(mid, length);
+    return merge(mergeSort(left, right)); //要将原始数组分割直至只有一个元素时，才开始归并
+
+}
+
+
+function merge(leftArr, rightArr) {
+    let result = [];
+    let leftIndex = 0;
+    let rightIndex = 0;
+    //left, right本身肯定都是从小到大排好序的
+    while (leftIndex < leftArr.length && rightIndex < rightArr.length) {
+        if (leftArr[leftIndex] < rightArr[rightIndex]) {
+            result.push(leftArr[leftIndex]);
+            leftIndex++;
+        } else {
+            result.push(rightArr[rightIndex]);
+            rightIndex++;
+        }
+    }
+
+    //不可能同时存在left和right都有剩余项的情况, 要么left要么right有剩余项, 把剩余项加进来即可
+    while (leftIndex < leftArr.length) {
+        result.push(leftArr[leftIndex]);
+        leftIndex++;
+    }
+    while (rightIndex < rightArr.length) {
+        result.push(rightArr[rightIndex]);
+        rightIndex++;
+    }
+    return result;
+
+}
+```
 
 		
 
