@@ -644,6 +644,19 @@ function merge(leftArr, rightArr) {
     [...Array(7).keys()].map(days=>new Date(Date.now()-86400000*days));
 ```
 
+##### 生成随机ID
+```js
+Math.random().toString(36).substring(2);
+
+```
+##### 这个获取URL的查询参数代码，是我见过最精简的
+```js
+    // ?foo=bar&baz=bing => {foo: bar, baz: bing}
+    let q={};
+    location.search.replace(/([^?&=]+)=([^&]+)/g,(_,k,v)=>q[k]=v);
+    console.log("q",q);
+    
+```
 
 		
 
