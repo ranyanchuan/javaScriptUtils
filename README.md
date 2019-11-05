@@ -737,6 +737,30 @@ Math.random().toString(36).substring(2);
     console.log(nt.has('word'))
 
 ```
+
+##### 深度优先
+```js
+// 深度优先
+function deepTraversal(node) {
+    let nodeList = [];
+    if (node) {
+
+        let stack = [];
+        stack.push(node);
+        while (stack.length > 0) {
+            let childrenItem = stack.pop();
+            nodeList.push(childrenItem);
+            let childrenList = childrenItem.children;
+
+            for (let i = childrenList.length - 1; i >= 0; i--) {
+                stack.push(childrenList[i]);
+            }
+        }
+    }
+    return nodeList;
+}
+
+```
 		
 
 	
