@@ -657,7 +657,86 @@ Math.random().toString(36).substring(2);
     console.log("q",q);
     
 ```
+##### 字典树
+```js
+    //javascript实现字典树trie，简单的实现下
+    class TrieNode {
 
+        constructor(value) {
+            this.value = value; //value为单个字符
+            this.num = 1; // 权重
+            this.deep = 0;//根节点默认0
+            this.son = []; // 孙节点
+            this.isEnd = false;
+        }
+
+
+        findNode(value) {
+            // 查子节点中是否存在
+            for (let node of this.son) {
+                if (node.value === value) {
+                    return node;
+                }
+            }
+            return null;
+        }
+    }
+
+    class Trie {
+
+        constructor() {
+            this.root = new TrieNode(null);
+            this.size = 1;//一开始的时候只有根节点这一个节点 深度
+        }
+
+        insert(str) {
+            let node = this.root;
+            for (let c of str) {
+                // 查看是有子节点
+                let sonNode = node.findNode(c);
+                if (sonNode == null) {
+                    sonNode = new TrieNode(c);
+                    sonNode.deep = node.deep + 1;
+                    node.son.push(sonNode);
+                } else {
+                    sonNode.num++;//有N个字符串经过它
+                }
+                node = sonNode;
+            }
+            //如果当前的node已经是一个word，则不需要添加
+            if (!node.isEnd) {
+                this.size++;
+                node.isEnd = true;
+            }
+        }
+
+        has(str) {
+            let node = this.root;
+            for (let c of str) {
+                const sonNode = node.findNode(c);
+                if (sonNode) {
+                    node = sonNode;
+                } else {
+                    return false;
+                }
+            }
+            return node.isEnd;
+        }
+    }
+
+    //demo
+    const nt = new Trie();
+    nt.insert('name');
+    nt.insert('word');
+    nt.insert('happy');
+    nt.insert('trie');
+
+    // console.log(nt.root['d'])
+    console.log(nt.has('has'))
+    console.log(nt.has('trie'))
+    console.log(nt.has('word'))
+
+```
 		
 
 	
