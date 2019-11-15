@@ -1063,6 +1063,29 @@ var threeSum = function (nums) {
     }
 
 ```
+##### 队列
+```js
+function Queue() {
+        let array = [];
+        let length = 0;
+        this.enQueue = function (value) {
+            length++;
+            return array.push(value) ? true : false;
+        }
+
+        this.deQueue = function (value) {
+            length--;
+            return array.shift() ? true : false;
+        }
+
+        this.length = function () {
+            return length;
+        }
+}
+```
+		
+		
+
 		
 		
 
