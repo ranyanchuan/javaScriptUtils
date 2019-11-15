@@ -1039,6 +1039,31 @@ var threeSum = function (nums) {
     return res
 }
 ```
+
+
+##### 栈
+```js
+
+    function Stack() {
+        let array = [];
+        let length = 0;
+        this.push = function (value) {
+            length++;
+            return array.push(value) ? true : false;
+        }
+
+        this.pop = function () {
+            length--;
+            return array.pop;
+        }
+
+        this.length = function () {
+            return length;
+        }
+    }
+
+```
+		
 		
 
 	
