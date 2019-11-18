@@ -1094,6 +1094,40 @@ export function formData(payload) {
 }
 
 ```
+
+##### 设置cookie
+```js
+
+export const setCookie = (name, value, options) => {
+
+  options = options || {};
+  if (value === null) {
+    value = '';
+    options.expires = -1;
+  }
+  let expires = '';
+  if (options.expires && (typeof options.expires == 'number' || options.expires.toUTCString)) {
+    let date;
+    if (typeof options.expires == 'number') {
+      date = new Date();
+      date.setTime(date.getTime() + (options.expires * 24 * 60 * 60 * 1000));
+    } else {
+      date = options.expires;
+    }
+    expires = '; expires=' + date.toUTCString();
+  }
+  let path = options.path ? '; path=' + options.path : '';
+  let domain = options.domain ? '; domain=' + options.domain : '';
+  let s = [cookie, expires, path, domain, secure].join('');
+  let secure = options.secure ? '; secure' : '';
+  let c = [name, '=', encodeURIComponent(value)].join('');
+  let cookie = [c, expires, path, domain, secure].join('')
+  document.cookie = cookie;
+
+}
+
+```
+		
 		
 		
 		
