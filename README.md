@@ -1083,6 +1083,18 @@ function Queue() {
         }
 }
 ```
+##### json 数据转换成表单格式
+```js
+export function formData(payload) {
+  let data = new FormData();
+  for (let key in payload) {   // 转换表单
+    data.append(key, payload[key]);
+  }
+  return data;
+}
+
+```
+		
 		
 		
 
