@@ -1,5 +1,23 @@
 # javaScriptUtils
 javascript常用工具方法
+##### 类型判断
+```js
+object.prototype.toString.call();
+export var getType = {
+  isObj: function (o) {
+    return Object.prototype.toString.call(o) == '[object Object]';
+  },
+  isArray: function (o) {
+    return Object.prototype.toString.call(o) == '[object Array]';
+  },
+  isNULL: function (o) {
+    return Object.prototype.toString.call(o) == '[object Null]';
+  }
+};
+
+```
+
+
 
 ##### 数组对象深度copy
 ```js
