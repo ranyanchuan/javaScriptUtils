@@ -1,5 +1,14 @@
 # javaScriptUtils
 javascript常用工具方法
+
+
+##### 判断对象是否为空
+```js
+var data = {};
+var arr = Object.keys(data);
+alert(arr.length == 0);//true
+```
+
 ##### 类型判断
 ```js
 object.prototype.toString.call();
@@ -1165,7 +1174,10 @@ export const getCookie = (name) => {
 }
 
 ```	
-		
+
+
+
+
 		
 		
 		
