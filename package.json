@@ -1,0 +1,22 @@
+{
+  "name": "javascriptutils",
+  "version": "0.0.1",
+  "description": "javascript 开发常用方法",
+  "main": "utils.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ranyanchuan/javaScriptUtils.git"
+  },
+  "keywords": [
+    "javascript"
+  ],
+  "author": "yyan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ranyanchuan/javaScriptUtils/issues"
+  },
+  "homepage": "https://github.com/ranyanchuan/javaScriptUtils#readme"
+}
