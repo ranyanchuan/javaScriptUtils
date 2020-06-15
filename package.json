@@ -1,5 +1,5 @@
 {
-  "name": "javascriptutils",
+  "name": "yyan-js-utils",
   "version": "0.0.1",
   "description": "javascript 开发常用方法",
   "main": "utils.js",
