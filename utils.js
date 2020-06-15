@@ -354,8 +354,6 @@ export const isRegExp = (o) => {
 }
 
 
-
-
 /**
  *
  * 是否错误对象
@@ -382,7 +380,6 @@ export const isSymbol = (o) => {
 export const isPromise = (o) => {
     return Object.prototype.toString.call(o).slice(8, -1) === 'Promise'
 }
-
 
 
 /**
@@ -520,9 +517,6 @@ export const download = (url) => {
 }
 
 
-
-
-
 /**
  *
  * 获取滚动的坐标
@@ -532,7 +526,6 @@ export const getScrollPosition = (el = window) => ({
     x: el.pageXOffset !== undefined ? el.pageXOffset : el.scrollLeft,
     y: el.pageYOffset !== undefined ? el.pageYOffset : el.scrollTop
 });
-
 
 
 /**
@@ -631,7 +624,6 @@ export const checkStr = (str, type) => {
 }
 
 
-
 /**
  *
  * 严格的身份证校验
@@ -643,7 +635,43 @@ export const isCardID = (sId) => {
         return false
     }
     //身份证城市
-    var aCity = { 11: "北京", 12: "天津", 13: "河北", 14: "山西", 15: "内蒙古", 21: "辽宁", 22: "吉林", 23: "黑龙江", 31: "上海", 32: "江苏", 33: "浙江", 34: "安徽", 35: "福建", 36: "江西", 37: "山东", 41: "河南", 42: "湖北", 43: "湖南", 44: "广东", 45: "广西", 46: "海南", 50: "重庆", 51: "四川", 52: "贵州", 53: "云南", 54: "西藏", 61: "陕西", 62: "甘肃", 63: "青海", 64: "宁夏", 65: "新疆", 71: "台湾", 81: "香港", 82: "澳门", 91: "国外" };
+    var aCity = {
+        11: "北京",
+        12: "天津",
+        13: "河北",
+        14: "山西",
+        15: "内蒙古",
+        21: "辽宁",
+        22: "吉林",
+        23: "黑龙江",
+        31: "上海",
+        32: "江苏",
+        33: "浙江",
+        34: "安徽",
+        35: "福建",
+        36: "江西",
+        37: "山东",
+        41: "河南",
+        42: "湖北",
+        43: "湖南",
+        44: "广东",
+        45: "广西",
+        46: "海南",
+        50: "重庆",
+        51: "四川",
+        52: "贵州",
+        53: "云南",
+        54: "西藏",
+        61: "陕西",
+        62: "甘肃",
+        63: "青海",
+        64: "宁夏",
+        65: "新疆",
+        71: "台湾",
+        81: "香港",
+        82: "澳门",
+        91: "国外"
+    };
     if (!aCity[parseInt(sId.substr(0, 2))]) {
         console.log('你的身份证地区非法')
         return false
@@ -685,7 +713,6 @@ export const random = (min, max) => {
         return null;
     }
 }
-
 
 
 /**
@@ -744,14 +771,16 @@ export const changeToChinese = (Num) => {
     //判断如果传递进来的不是字符的话转换为字符
     if (typeof Num == "number") {
         Num = new String(Num);
-    };
+    }
+    ;
     Num = Num.replace(/,/g, "") //替换tomoney()中的“,”
     Num = Num.replace(/ /g, "") //替换tomoney()中的空格
     Num = Num.replace(/￥/g, "") //替换掉可能出现的￥字符
     if (isNaN(Num)) { //验证输入的字符是否为数字
         //alert("请检查小写金额是否正确");
         return "";
-    };
+    }
+    ;
     //字符处理完毕后开始转换，采用前后两部分分别转换
     var part = String(Num).split(".");
     var newchar = "";
@@ -891,8 +920,6 @@ export const changeToChinese = (Num) => {
 }
 
 
-
-
 /**
  *
  * 判断一个元素是否在数组中
@@ -942,7 +969,6 @@ export const unique = (arr) => {
 }
 
 
-
 /**
  *
  * 求两个集合的并集
@@ -979,7 +1005,6 @@ export const remove = (arr, ele) => {
 }
 
 
-
 /**
  *
  * 将类数组转换为数组
@@ -991,10 +1016,10 @@ export const formArray = (ary) => {
         arr = ary;
     } else {
         arr = Array.prototype.slice.call(ary);
-    };
+    }
+    ;
     return arr;
 }
-
 
 
 /**
@@ -1004,7 +1029,6 @@ export const formArray = (ary) => {
 export const max = (arr) => {
     return Math.max.apply(null, arr);
 }
-
 
 
 /**
@@ -1130,7 +1154,6 @@ export const debouncer = (fn, time, interval = 200) => {
 }
 
 
-
 /**
  *
  * 在字符串中插入新字符串
@@ -1215,13 +1238,38 @@ export const appendQuery = (url, key, value) => {
 
 /**
  *
- * 邮箱
+ * 10 进制转换 16 进制
+ *
  */
+
+export const tenToSixteen = (num) => {
+    return num.toString(16);
+}
+
 
 /**
  *
- * 邮箱
+ * 判断传入参数是否为质数
  */
+
+export const fn = (input) => {
+    input = parseInt(input, 10);
+    return this.isPrime(input) ? 'is prime' : 'not prime';
+}
+
+export const isPrime = (input) => {
+    if (input < 2) {
+        return false;
+    } else {
+        for (var i = 2; i <= Math.sqrt(input); i++) {
+            if (input % i == 0) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
 
 /**
  *
