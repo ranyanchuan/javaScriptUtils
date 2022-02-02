@@ -1242,6 +1242,28 @@ var letterCombinations = function(digits) {
 ```
 
 
+#### 打家劫舍
+```js
+var rob = function(nums) {
+ let max=0;
+ let sum=0;
+ let dp=(index)=>{
+  if(!nums[index]){
+      max=Math.max(max,sum) 
+      return;
+  }
+  sum+=nums[index];
+  dp(index+2);
+ }
+ nums.forEach((item,index)=>{
+  sum=0;
+  dp(index);
+
+ })
+ return max;
+};
+
+```
 
 		
 		
