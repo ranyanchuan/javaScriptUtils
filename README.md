@@ -1265,6 +1265,36 @@ var rob = function(nums) {
 
 ```
 
+#### 目标和
+```js
+   var findTargetSumWays = function(nums, target) {
+        let count=0;
+        const dp=(index,sum,status)=>{
+            if(index>nums.length-1){
+                return
+            }
+
+            if(status=="+"){
+                sum+=nums[index];
+            }else{
+                sum-=nums[index];
+            }
+
+            if((index==(nums.length-1)) && sum===target){
+                count+=1
+            }
+
+            dp(index+1,sum,"+")
+            dp(index+1,sum,"-")
+        }
+
+        dp(0,0,"+")
+        dp(0,0,"-")
+        return count;
+    };
+
+```
+
 		
 		
 		
