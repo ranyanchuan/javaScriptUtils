@@ -1295,6 +1295,28 @@ var rob = function(nums) {
 
 ```
 
+##### 买卖股票
+```js
+
+    var maxProfit = function(prices) {
+        let max=0;
+        const dp=(index,sub)=>{
+            if(index>prices.length-1){
+                return
+            }
+            if(prices[index]-sub>0){
+                max=Math.max(prices[index]-sub,max)
+            }
+            dp(index+1,sub)
+        }
+
+        for(let index in prices){
+            dp(index*1,prices[index])
+        }
+        return max
+    };
+
+```
 		
 		
 		
