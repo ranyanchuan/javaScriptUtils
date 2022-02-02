@@ -1206,7 +1206,40 @@ const generateParenthesis = n => {
 
 
 
-```	
+```
+
+##### 电话号码的字母组合
+
+```js
+
+var letterCombinations = function(digits) {
+
+      const obj={ '2': 'abc', '3': 'def', '4': 'ghi', '5': 'jkl', '6': 'mno', '7': 'pqrs', '8': 'tuv', '9': 'wxyz' }
+        let result=[]
+        const genString=(str,index)=>{
+            if(str.length>digits.length){
+                return
+            }
+
+            if(str.length==digits.length){
+                result.push(str)
+                return;
+            }
+            const a=digits.slice(index,index+1);
+            const letterString=obj[a];
+            for(let key of letterString){
+                genString(`${str}${key}`,index+1)
+            }
+
+        }
+
+        genString("",0)
+        return result
+
+};
+
+
+```
 
 
 
