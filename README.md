@@ -1317,6 +1317,28 @@ var rob = function(nums) {
     };
 
 ```
+
+##### pow(x,n)
+```js
+var myPow = function(x, n) {
+
+ const dp=(x,n)=>{
+   if(n==1){
+     return x
+   }
+    if(n%2==0){
+      return dp(x,n/2)*dp(x,n/2) 
+    }else{
+      return dp(x,(n-1)/2)*dp(x,(n-1)/2)*x 
+    }
+ }
+ 
+return dp(x,n)
+
+
+};
+```
+
 		
 		
 		
