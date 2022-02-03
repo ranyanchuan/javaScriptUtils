@@ -1353,6 +1353,27 @@ var removeOccurrences = function(s, part) {
   return dp(s)
 };
 ```
+
+#### 搜索插入位置
+```JS
+var searchInsert = function(nums, target) {
+  //   1,3,5,6
+  let sIndex=0;
+  let eIndex=nums.length-1
+  let ant=nums.length;
+  while(sIndex<eIndex){
+    midIndex=sIndex+Math.floor((eIndex-sIndex)/2)
+    // 因为设置了ant未墨迹点
+    if(nums[midIndex]>=target){
+      ant=midIndex
+      eIndex=midIndex-1
+    }else{
+      sIndex=midIndex+1   
+    }
+  }
+  return ant
+};
+```
 	
 		
 		
