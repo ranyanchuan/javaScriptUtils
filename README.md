@@ -1339,7 +1339,21 @@ return dp(x,n)
 };
 ```
 
-		
+##### 删除给定字符串
+```js
+var removeOccurrences = function(s, part) {
+  const dp=(s)=>{
+     const newString = s.replace(new RegExp(part,"g"),"")
+     if(newString==s){
+         return newString
+     }else{
+         return dp(newString)
+     }
+  }
+  return dp(s)
+};
+```
+	
 		
 		
 
