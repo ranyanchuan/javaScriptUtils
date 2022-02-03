@@ -1374,6 +1374,27 @@ var searchInsert = function(nums, target) {
   return ant
 };
 ```
+
+##### X的平方根
+```js
+var mySqrt = function(x) {
+
+let left=0
+let right=x
+let value=0;
+
+while(left<=right){
+ let mid=left+((right-left)>>2);
+ if(mid*mid<=x){
+     value=mid;
+     left=mid+1
+ }else{
+   right=mid-1
+ }
+}
+return value
+};
+```
 	
 		
 		
